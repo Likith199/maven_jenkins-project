@@ -5,20 +5,21 @@ pipeline {
         jdk 'java' 
     }
     stages {
-         stage ('Build') {
+         stage ('git clone') {
             steps {
-                sh 'mvn install' 
+                git credentialsId: 'git_credentials', url: 'https://github.com/BharathSharath/maven_jenkins-project.git' 
             }
-            post {
-                success {
-                    junit 'target/surefire-reports/**/*.xml' 
+         }
+           Stage ('build'){
+                steps {
+                    sh "mvn compile"
                 }
             }
-        }
+        
 
         stage ('test') {
             steps {
-                echo 'This is a minimal pipeline.'
+                sh "mvn test"
             }
         }
     }
