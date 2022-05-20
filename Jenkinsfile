@@ -4,23 +4,37 @@ pipeline {
         maven 'Maven' 
         jdk 'java' 
     }
+    
     stages {
          stage ('git clone') {
             steps {
-                git credentialsId: 'git_credentials', url: 'https://github.com/BharathSharath/maven_jenkins-project.git' 
+                git  'https://github.com/BharathSharath/maven_jenkins-project.git' 
             }
          }
-           Stage ('build'){
-                steps {
-                    sh "mvn compile"
-                }
-            }
-        
-
-        stage ('test') {
+          stage ('compile') {
             steps {
-                sh "mvn test"
+                bat "mvn compile" 
             }
-        }
+         }
+          stage ('test') {
+            steps {
+                bat "mvn test" 
+            }
+         }
+          stage ('package') {
+            steps {
+                bat "mvn package" 
+            }
+         }
+          stage ('Build') {
+            steps {
+                bat "mvn install" 
+            }
+         }
+         stage ('Deploy') {
+            steps {
+                bat "mvn deploy" 
+            }
+         }
     }
 }
