@@ -1,19 +1,22 @@
 pipeline {
-    agent any   
+    agent any
+    tools { 
+        maven 'Maven 3.8.5' 
+        jdk 'jdk 11.0.15' 
+    }
     stages {
-        stage('git clone') { 
+        stage ('Initialize') {
             steps {
-                echo 'cloning..' 
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
             }
-        } 
-        stage('compile') { 
+        }
+
+        stage ('Build') {
             steps {
-                echo 'compiling..' 
-            }
-        } 
-        stage('test') {
-            steps {
-                echo ' testing..'
+                echo 'This is a minimal pipeline.'
             }
         }
     }
