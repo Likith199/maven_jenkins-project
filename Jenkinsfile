@@ -8,7 +8,7 @@ pipeline {
         stage ('Initialize') {
             steps {
                 sh '''
-                    echo "PATH = ${PATH}"
+                    echo "PATH = ${Path}"
                     echo "M2_HOME = ${MAVEN_HOME}"
                 ''' 
             }
