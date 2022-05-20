@@ -16,7 +16,7 @@ pipeline {
             }
         }
 
-        stage ('Build') {
+        stage ('test') {
             steps {
                 echo 'This is a minimal pipeline.'
             }
