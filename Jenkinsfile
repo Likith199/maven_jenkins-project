@@ -33,7 +33,7 @@ pipeline {
          }
           stage ('compile') {
             steps {
-                bat "mvn compil" 
+                bat "mvn compile" 
             }
          }
           stage ('test') {
