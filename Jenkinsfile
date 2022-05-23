@@ -13,19 +13,19 @@ pipeline {
          }  
          success {  
              echo 'This will run only if successful'  
-             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "BUILD SUCESS: Project name -> ${env.JOB_NAME}", to: "bharathreddyv88@gmail.com";
+             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "BUILD SUCESS: Project name -> ${env.JOB_NAME}", to: "$EMAIL_TO";
          }  
          failure {  
-             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "BUILD FAILURE: Project name -> ${env.JOB_NAME}", to: "bharathreddyv88@gmail.com";  
+             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "BUILD FAILURE: Project name -> ${env.JOB_NAME}", to: "$EMAIL_TO";  
          }  
          unstable {  
              echo 'This will run only if the run was marked as unstable' 
-             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "UNSTABLE BUILD: Project name -> ${env.JOB_NAME}", to: "bharathreddyv88@gmail.com";
+             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "UNSTABLE BUILD: Project name -> ${env.JOB_NAME}", to: "$EMAIL_TO";
          }  
          changed {  
              echo 'This will run only if the state of the Pipeline has changed'  
              echo 'For example, if the Pipeline was previously failing but is now successful'  
-             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "STATUS CHANGED: Project name -> ${env.JOB_NAME}", to: "bharathreddyv88@gmail.com";
+             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "STATUS CHANGED: Project name -> ${env.JOB_NAME}", to: "$EMAIL_TO";
          }  
      }  
     stages {
