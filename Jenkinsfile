@@ -33,7 +33,7 @@ post {
          }
           stage ('compile') {
             steps {
-                bat "mvn compile" 
+                bat "mvn compil" 
             }
          }
           stage ('test') {
