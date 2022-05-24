@@ -28,11 +28,7 @@ pipeline {
          }  
      }  
     stages {
-         stage ('git clone') {
-            steps {
-                git  'https://github.com/BharathSharath/maven_jenkins-project.git' 
-            }
-         }
+       
           stage ('compile') {
             steps {
                 bat "mvn compile" 
